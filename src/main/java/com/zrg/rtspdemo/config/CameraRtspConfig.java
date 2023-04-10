@@ -16,6 +16,10 @@ public class CameraRtspConfig {
      * 臻识
      */
     public static final String CAMERA_ZHENSHI = "ZHEN_SHI";
+    /**
+     * TP_LINK
+     */
+    public static final String CAMERA_TPLINK = "TP_LINK";
 
     /**
      * 臻识-主码流
@@ -42,6 +46,18 @@ public class CameraRtspConfig {
     private String rtspHuaxiaSubUrlFormat;
 
     /**
+     * 华夏-主码流
+     */
+    @Value("${rtsp.tplink.main.url.format}")
+    private String rtspTplinkMainUrlFormat;
+
+    /**
+     * 华夏-子码流
+     */
+    @Value("${rtsp.tplink.sub.url.format}")
+    private String rtspTplinkSubUrlFormat;
+
+    /**
      * Get RTSP Main URL Format by Camera.
      *
      * @param cameraType
@@ -55,6 +71,9 @@ public class CameraRtspConfig {
                 break;
             case CAMERA_HUAXIA:
                 mainUrlFormat = rtspHuaxiaMainUrlFormat;
+                break;
+            case CAMERA_TPLINK:
+                mainUrlFormat = rtspTplinkMainUrlFormat;
                 break;
             default:
                 break;
@@ -76,6 +95,9 @@ public class CameraRtspConfig {
                 break;
             case CAMERA_HUAXIA:
                 subUrlFormat = rtspHuaxiaSubUrlFormat;
+                break;
+                case CAMERA_TPLINK:
+                subUrlFormat = rtspTplinkSubUrlFormat;
                 break;
             default:
                 break;
